@@ -259,34 +259,34 @@ static void at_uart_init(void)
     }
 
     if (data) {
-        if ((data[0] == 0xFC) && (data[1] == 0xFC)) { // check magic flag, should be 0xfc 0xfc
-            if ((data[16] != 0xFF) && (data[17] != 0xFF)) {
-                tx_pin = data[16];
-                rx_pin = data[17];
-            }
+        // if ((data[0] == 0xFC) && (data[1] == 0xFC)) { // check magic flag, should be 0xfc 0xfc
+        //     if ((data[16] != 0xFF) && (data[17] != 0xFF)) {
+        //         tx_pin = data[16];
+        //         rx_pin = data[17];
+        //     }
 
-            if (data[18] != 0xFF) {
-                cts_pin = data[18];
-            } else {
-                cts_pin = -1;
-            }
+        //     if (data[18] != 0xFF) {
+        //         cts_pin = data[18];
+        //     } else {
+        //         cts_pin = -1;
+        //     }
 
-            if (data[19] != 0xFF) {
-                rts_pin = data[19];
-            } else {
-                rts_pin = -1;
-            }
+        //     if (data[19] != 0xFF) {
+        //         rts_pin = data[19];
+        //     } else {
+        //         rts_pin = -1;
+        //     }
 
-            if (data[20] != 0xFF) {
-                gpio_set_direction(data[20], GPIO_MODE_OUTPUT);
-                gpio_set_level(data[20], 1);
-            }
+        //     if (data[20] != 0xFF) {
+        //         gpio_set_direction(data[20], GPIO_MODE_OUTPUT);
+        //         gpio_set_level(data[20], 1);
+        //     }
 
-            if (data[21] != 0xFF) {
-                gpio_set_direction(data[21], GPIO_MODE_OUTPUT);
-                gpio_set_level(data[21], 1);
-            }
-        }
+        //     if (data[21] != 0xFF) {
+        //         gpio_set_direction(data[21], GPIO_MODE_OUTPUT);
+        //         gpio_set_level(data[21], 1);
+        //     }
+        // }
         free(data);
         data = NULL;
     }
