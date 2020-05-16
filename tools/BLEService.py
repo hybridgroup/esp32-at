@@ -172,7 +172,7 @@ class BaseParser(object):
                 d = d.encode("utf-8")
             try:
                 out_dict[d] = self.cp_parser.parse({"key": d, "value": input_dict[d]}, self.log_error)
-            except StandardError, e:
+            except StandardError as e:
                 self.log_error("failed to parse: {key: %s, value: %s}" % (d, input_dict[d]))
                 self.log_error("exception is %s" % e)
         return out_dict
